@@ -8,6 +8,11 @@ const routes: Routes = [
       import('./exercises/exercises.module').then((m) => m.ExercisesModule),
   },
   {
+    path: '',
+    redirectTo: 'exercises',
+    pathMatch: 'full',
+  },
+  {
     path: '**',
     redirectTo: 'exercises',
   },
