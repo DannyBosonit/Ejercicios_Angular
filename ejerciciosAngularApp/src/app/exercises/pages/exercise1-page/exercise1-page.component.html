@@ -1,1 +1,12 @@
-<p>exercise1-page works!</p>
+<button *ngIf="showImg" (click)="toggleImage()" class="btn btn-primary">
+  Enseñar
+</button>
+<button *ngIf="!showImg" (click)="toggleImage()" class="btn btn-primary">
+  Esconder
+</button>
+<img
+  *ngIf="showImg"
+  class="img-fluid"
+  src="https://upload.wikimedia.org/wikipedia/commons/0/01/Hello_World_Movie_%28Wordmark%29_Logo.png"
+  alt="Hello World"
+/>
