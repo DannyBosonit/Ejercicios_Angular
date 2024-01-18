@@ -42,6 +42,10 @@ const routes: Routes = [
         path: 'exercise_7',
         component: Exercise7PageComponent,
       },
+      {
+        path: '**',
+        redirectTo: 'exercise_1',
+      },
     ],
   },
 ];
