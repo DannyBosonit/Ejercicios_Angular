@@ -1,12 +1,16 @@
-<button *ngIf="showImg" (click)="toggleImage()" class="btn btn-primary">
-  Esconder
-</button>
-<button *ngIf="!showImg" (click)="toggleImage()" class="btn btn-primary">
-  Enseñar
-</button>
-<img
-  *ngIf="showImg"
-  class="img-fluid"
-  src="https://upload.wikimedia.org/wikipedia/commons/0/01/Hello_World_Movie_%28Wordmark%29_Logo.png"
-  alt="Hello World"
-/>
+<div class="col-12">
+  <button *ngIf="showImg" (click)="toggleImage()" class="btn btn-primary">
+    Esconder
+  </button>
+  <button *ngIf="!showImg" (click)="toggleImage()" class="btn btn-primary">
+    Enseñar
+  </button>
+</div>
+<div class="d-flex justify-content-center">
+  <img
+    *ngIf="showImg"
+    class="img-fluid"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Hello_World_Movie_%28Wordmark%29_Logo.png/1200px-Hello_World_Movie_%28Wordmark%29_Logo.png"
+    alt="Hello World"
+  />
+</div>
