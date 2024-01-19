@@ -1,5 +1,12 @@
-<div class="container border border-2 border-info p-3 mb-3">
-  <app-exercise2-parent></app-exercise2-parent>
-
-  <app-exercise2-child></app-exercise2-child>
+<div class="row border border-2 border-info p-3 mb-3">
+  <h4 class="col-12">PARENT</h4>
+  <p class="text-center">message:</p>
+  <div class="d-flex justify-content-center">
+    <button class="btn btn-primary me-2">Use Service</button>
+    <button (click)="sendMessageToChild()" class="btn btn-primary me-2">
+      Use Input Property
+    </button>
+    <button class="btn btn-primary me-2">Use Observable</button>
+  </div>
+  <app-exercise2-child [childMessage]="''"></app-exercise2-child>
 </div>
