@@ -10,6 +10,8 @@ import { Exercise4PageComponent } from './pages/exercise4-page/exercise4-page.co
 import { Exercise5PageComponent } from './pages/exercise5-page/exercise5-page.component';
 import { Exercise6PageComponent } from './pages/exercise6-page/exercise6-page.component';
 import { Exercise7PageComponent } from './pages/exercise7-page/exercise7-page.component';
+import { Exercise2ParentComponent } from './components/exercise2-parent/exercise2-parent.component';
+import { Exercise2ChildComponent } from './components/exercise2-child/exercise2-child.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { Exercise7PageComponent } from './pages/exercise7-page/exercise7-page.co
     Exercise5PageComponent,
     Exercise6PageComponent,
     Exercise7PageComponent,
+    Exercise2ParentComponent,
+    Exercise2ChildComponent,
   ],
   imports: [CommonModule, ExercisesRoutingModule],
 })
