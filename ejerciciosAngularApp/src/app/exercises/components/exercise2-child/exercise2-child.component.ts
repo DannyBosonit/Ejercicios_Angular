@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MessagesService } from '../../services/messages.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-exercise2-child',
@@ -8,12 +9,14 @@ import { MessagesService } from '../../services/messages.service';
 })
 export class Exercise2ChildComponent implements OnInit {
   @Input()
-  public childMessage: string = '';
+  public parentMessage: string = '';
 
   @Output()
   public onChildMessage: EventEmitter<string> = new EventEmitter();
 
   public parentServiceMessage: string = '';
+  public parentSubjectMessage: string = '';
+  private subscription?: Subscription;
 
   constructor(private messagesService: MessagesService) {}
 
@@ -21,6 +24,11 @@ export class Exercise2ChildComponent implements OnInit {
     this.messagesService.sendParentMessage.subscribe((str: string) => {
       this.parentServiceMessage = str;
     });
+    this.subscription = this.messagesService
+      .getParentObservable()
+      .subscribe((str: string) => {
+        this.parentSubjectMessage = str;
+      });
   }
 
   sendMessageService() {
@@ -28,7 +36,16 @@ export class Exercise2ChildComponent implements OnInit {
     this.messagesService.childMessageToParent(message);
   }
 
+  sendMessageSubject() {
+    const message = 'CHILD USING SUBJECT';
+    this.messagesService.setChildMessage(message);
+  }
+
   emitChildMessage(): void {
     this.onChildMessage.emit('');
+  }
+
+  ngOnDestroy() {
+    this.subscription?.unsubscribe();
   }
 }

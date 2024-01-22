@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessagesService } from '../../services/messages.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-exercise2-page',
@@ -8,8 +9,10 @@ import { MessagesService } from '../../services/messages.service';
 })
 export class Exercise2PageComponent implements OnInit {
   public parentMessage: string = '';
-  public parentMessage2: string = '';
+  public childMessage: string = '';
   public childServiceMessage: string = '';
+  public childSubjectMessage: string = '';
+  private subscription?: Subscription;
 
   constructor(private messagesService: MessagesService) {}
 
@@ -17,10 +20,21 @@ export class Exercise2PageComponent implements OnInit {
     this.messagesService.sendChildMessage.subscribe((str: string) => {
       this.childServiceMessage = str;
     });
+    this.subscription = this.messagesService
+      .getChildObservable()
+      .subscribe((str: string) => {
+        this.childSubjectMessage = str;
+      });
   }
+
   sendMessageService() {
     const message = 'PARENT USING SERVICE';
     this.messagesService.parentMessageToChild(message);
+  }
+
+  sendMessageSubject() {
+    const message = 'Parent USING SUBJECT';
+    this.messagesService.setParentMessage(message);
   }
 
   sendMessageToChild(): void {
@@ -28,6 +42,10 @@ export class Exercise2PageComponent implements OnInit {
   }
 
   onReciveMessage() {
-    this.parentMessage2 = 'CHILD USING OUTPUT EVENT';
+    this.childMessage = 'CHILD USING OUTPUT EVENT';
+  }
+
+  ngOnDestroy() {
+    this.subscription?.unsubscribe();
   }
 }

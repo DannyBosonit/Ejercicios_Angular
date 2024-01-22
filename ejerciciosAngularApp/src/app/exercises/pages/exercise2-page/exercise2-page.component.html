@@ -1,7 +1,7 @@
 <div class="border border-2 border-info p-3 mb-3">
   <h4 class="col-12">PARENT</h4>
   <p class="text-center">
-    message: {{ parentMessage2 || childServiceMessage }}
+    message: {{ childMessage || childServiceMessage || childSubjectMessage }}
   </p>
   <div class="d-flex justify-content-center">
     <button (click)="sendMessageService()" class="btn btn-primary me-2">
@@ -10,10 +10,12 @@
     <button (click)="sendMessageToChild()" class="btn btn-primary me-2">
       Use Input Property
     </button>
-    <button class="btn btn-primary me-2">Use Observable</button>
+    <button (click)="sendMessageSubject()" class="btn btn-primary me-2">
+      Use Observable
+    </button>
   </div>
   <app-exercise2-child
     (onChildMessage)="onReciveMessage()"
-    [childMessage]="parentMessage"
+    [parentMessage]="parentMessage"
   ></app-exercise2-child>
 </div>
