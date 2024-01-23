@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "name": "daniel",
+      "email": "daniel@test.com",
+      "subscription": true,
+      "country": "Colombia",
+      "city": "Bogotá"
+    },
+    {
+      "name": "andres",
+      "email": "andres@test.com",
+      "subscription": false,
+      "country": "Argentina",
+      "city": "Córdoba"
+    }
+  ]
+}
