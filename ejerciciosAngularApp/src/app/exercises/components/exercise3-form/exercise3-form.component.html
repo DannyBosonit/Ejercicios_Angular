@@ -1,5 +1,5 @@
 <div class="bg-dark-subtle rounded p-3 mb-3" id="form">
-  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="userForm">
     <div class="mb-2">
       <label for="name" class="form-label">Nombre de usuario</label>
       <input
@@ -43,7 +43,7 @@
       <label for="country" class="form-label">País</label>
       <select formControlName="country" class="form-select" id="country">
         <option value="0"></option>
-        <option *ngFor="let country of countries" value="1">
+        <option *ngFor="let country of countries" [ngValue]="country.name">
           {{ country.name }}
         </option>
       </select>

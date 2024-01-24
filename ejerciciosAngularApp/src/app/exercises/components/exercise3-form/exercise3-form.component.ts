@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Country } from '../../interfaces/exercise3.interface';
+import { Country, User } from '../../interfaces/exercise3.interface';
 import { UsersService } from '../../services/users.service';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -19,18 +19,25 @@ export class Exercise3FormComponent implements OnInit {
     city: new FormControl(''),
   });
 
-  constructor(private usersSercice: UsersService) {}
+  constructor(private usersService: UsersService) {}
 
   ngOnInit(): void {
-    this.usersSercice
+    this.usersService
       .getCountries()
       .subscribe((countries) => (this.countries = countries));
   }
 
+  get currentUser(): User {
+    const user = this.userForm.value as User;
+    return user;
+  }
+
   onSubmit(): void {
-    console.log({
-      formIsValid: this.userForm.valid,
-      value: this.userForm.value,
-    });
+    if (!this.currentUser.id) {
+      this.usersService.addUser(this.currentUser).subscribe((user) => {
+        // TODO:
+      });
+      return;
+    }
   }
 }

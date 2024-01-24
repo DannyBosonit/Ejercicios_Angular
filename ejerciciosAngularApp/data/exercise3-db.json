@@ -15,6 +15,22 @@
       "subscription": false,
       "country": "Argentina",
       "city": "Córdoba"
+    },
+    {
+      "id": 3,
+      "name": "Trunks",
+      "email": "trunks@test.com",
+      "subscription": false,
+      "country": "Japan",
+      "city": "Tokio"
+    },
+    {
+      "id": 4,
+      "name": "Vulma",
+      "email": "vulma@test.com",
+      "subscription": true,
+      "country": "Japan",
+      "city": "Tokio"
     }
   ]
 }
