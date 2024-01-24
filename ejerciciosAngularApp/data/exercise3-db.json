@@ -1,6 +1,7 @@
 {
   "users": [
     {
+      "id": 1,
       "name": "daniel",
       "email": "daniel@test.com",
       "subscription": true,
@@ -8,6 +9,7 @@
       "city": "Bogotá"
     },
     {
+      "id": 2,
       "name": "andres",
       "email": "andres@test.com",
       "subscription": false,

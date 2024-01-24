@@ -1,3 +1,4 @@
 export const environments = {
-  baseUrl: 'http://localhost:3000',
+  dataBaseUrl: 'http://localhost:3000',
+  countriesUrl: 'https://restcountries.com/v2/all?fields=name',
 };

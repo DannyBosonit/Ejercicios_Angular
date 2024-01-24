@@ -28,7 +28,7 @@
         </td>
         <ng-template #notSubscribed>
           <td>
-            {{ user.subscription }}
+            {{ user | blankSpace }}
           </td>
         </ng-template>
         <td>{{ user.country }}</td>

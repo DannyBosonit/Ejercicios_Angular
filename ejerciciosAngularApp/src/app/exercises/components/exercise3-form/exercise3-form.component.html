@@ -1,8 +1,13 @@
 <div class="bg-dark-subtle rounded p-3 mb-3" id="form">
-  <form>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <div class="mb-2">
       <label for="name" class="form-label">Nombre de usuario</label>
-      <input type="text" class="form-control" id="name" />
+      <input
+        formControlName="name"
+        type="text"
+        class="form-control"
+        id="name"
+      />
     </div>
     <div class="mb-2">
       <label for="password" class="form-label">Contraseña</label>
@@ -16,26 +21,44 @@
     </div>
     <div class="mb-2">
       <label for="email" class="form-label">Correo</label>
-      <input type="email" class="form-control" id="email" />
+      <input
+        formControlName="email"
+        type="email"
+        class="form-control"
+        id="email"
+      />
     </div>
     <div class="mb-2">
-      <input type="checkbox" class="form-check-imput me-2" id="checkbox" />
+      <input
+        formControlName="subscription"
+        type="checkbox"
+        class="form-check-imput me-2"
+        id="checkbox"
+      />
       <label for="checkbox" class="form-check-label"
         >Enviarme ofertas promocionales</label
       >
     </div>
     <div class="mb-2">
       <label for="country" class="form-label">País</label>
-      <select class="form-select" id="country">
-        <option value="1">Países api</option>
+      <select formControlName="country" class="form-select" id="country">
+        <option value="0"></option>
+        <option *ngFor="let country of countries" value="1">
+          {{ country.name }}
+        </option>
       </select>
     </div>
     <div class="mb-3">
       <label for="city" class="form-label">Ciudad</label>
-      <input type="text" class="form-control" id="city" />
+      <input
+        formControlName="city"
+        type="text"
+        class="form-control"
+        id="city"
+      />
     </div>
     <div class="mb-2">
-      <button class="btn btn-primary">Crear</button>
+      <button class="btn btn-primary" (click)="onSubmit()">Crear</button>
     </div>
   </form>
 </div>

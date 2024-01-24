@@ -6,9 +6,10 @@ export interface Country {
 }
 
 export interface User {
+  id: number;
   name: string;
   email: string;
   subscription: boolean;
-  country?: Country;
+  country: string;
   city: string;
 }

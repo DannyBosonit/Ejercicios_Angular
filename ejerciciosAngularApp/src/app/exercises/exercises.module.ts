@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExercisesRoutingModule } from './exercises-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 import { Exercise1PageComponent } from './pages/exercise1-page/exercise1-page.component';
@@ -13,6 +14,8 @@ import { Exercise7PageComponent } from './pages/exercise7-page/exercise7-page.co
 import { Exercise2ChildComponent } from './components/exercise2-child/exercise2-child.component';
 import { Exercise3FormComponent } from './components/exercise3-form/exercise3-form.component';
 import { Exercise3TableComponent } from './components/exercise3-table/exercise3-table.component';
+
+import { BlankSpacePipe } from './pipes/blank-space.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { Exercise3TableComponent } from './components/exercise3-table/exercise3-
     Exercise2ChildComponent,
     Exercise3FormComponent,
     Exercise3TableComponent,
+
+    // Pipes
+    BlankSpacePipe,
   ],
-  imports: [CommonModule, ExercisesRoutingModule],
+  imports: [CommonModule, ExercisesRoutingModule, ReactiveFormsModule],
 })
 export class ExercisesModule {}
