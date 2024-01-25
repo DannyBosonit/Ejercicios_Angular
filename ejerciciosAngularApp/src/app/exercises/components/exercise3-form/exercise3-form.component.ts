@@ -35,7 +35,7 @@ export class Exercise3FormComponent implements OnInit {
   onSubmit(): void {
     if (!this.currentUser.id) {
       this.usersService.addUser(this.currentUser).subscribe((user) => {
-        // TODO:
+        console.log(user);
       });
       return;
     }
