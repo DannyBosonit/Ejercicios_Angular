@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "backend": "json-server --watch data/exercise3-db.json",
+    "users-backend": "json-server --watch data/exercise3-db.json",
+    "universities-backend": "json-server --watch data/universities.json",
     "start": "ng serve -o",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",

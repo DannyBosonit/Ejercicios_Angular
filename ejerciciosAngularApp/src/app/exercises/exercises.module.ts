@@ -16,6 +16,7 @@ import { Exercise3FormComponent } from './components/exercise3-form/exercise3-fo
 import { Exercise3TableComponent } from './components/exercise3-table/exercise3-table.component';
 
 import { BlankSpacePipe } from './pipes/blank-space.pipe';
+import { MaterialModule } from '../material/material/material.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,11 @@ import { BlankSpacePipe } from './pipes/blank-space.pipe';
     // Pipes
     BlankSpacePipe,
   ],
-  imports: [CommonModule, ExercisesRoutingModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ExercisesRoutingModule,
+    ReactiveFormsModule,
+    MaterialModule,
+  ],
 })
 export class ExercisesModule {}

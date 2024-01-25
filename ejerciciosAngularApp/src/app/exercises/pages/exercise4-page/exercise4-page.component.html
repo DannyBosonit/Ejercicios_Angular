@@ -1,1 +1,79 @@
-<p>exercise4-page works!</p>
+<div class="university">
+  <h2>Buscador de universidades</h2>
+  <div class="col d-flex">
+    <button
+      (click)="changeStyleButton(1)"
+      [ngClass]="{ active: activeButton === 1 }"
+      class="btn btn-primary me-2"
+    >
+      España
+    </button>
+    <button
+      (click)="changeStyleButton(2)"
+      [ngClass]="{ active: activeButton === 2 }"
+      class="btn btn-primary me-2"
+    >
+      Reino Unido
+    </button>
+    <button
+      (click)="changeStyleButton(3)"
+      [ngClass]="{ active: activeButton === 3 }"
+      class="btn btn-primary me-2"
+    >
+      Portugal
+    </button>
+
+    <div *ngIf="activeButton !== null">
+      <input
+        *ngIf="activeButton === 1"
+        type="text"
+        placeholder="Buscar una universidad española"
+        class="form-control"
+        (input)="[searchInputChange($event), searchSpainUniversity()]"
+        [formControl]="searchUniversityinput"
+        [matAutocomplete]="spain"
+      />
+      <mat-autocomplete class="position-absolute" #spain="matAutocomplete">
+        <mat-option
+          *ngFor="let university of universities"
+          [value]="university"
+        >
+          {{ university.name }}
+        </mat-option>
+      </mat-autocomplete>
+      <input
+        *ngIf="activeButton === 2"
+        type="text"
+        placeholder="Buscar una universidad britanica"
+        class="form-control"
+        (input)="[searchInputChange($event), searchUKUniversity()]"
+        [formControl]="searchUniversityinput"
+        [matAutocomplete]="uk"
+      />
+      <mat-autocomplete class="position-absolute" #uk="matAutocomplete">
+        <mat-option
+          *ngFor="let university of universities"
+          [value]="university"
+        >
+          {{ university.name }}
+        </mat-option>
+      </mat-autocomplete>
+      <input
+        *ngIf="activeButton === 3"
+        type="text"
+        placeholder="Buscar una universidad portuguesa"
+        class="form-control"
+        (input)="[searchInputChange($event), searchPortugalUniversity()]"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete class="position-absolute" #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let university of universities"
+          [value]="university"
+        >
+          {{ university.name }}
+        </mat-option>
+      </mat-autocomplete>
+    </div>
+  </div>
+</div>

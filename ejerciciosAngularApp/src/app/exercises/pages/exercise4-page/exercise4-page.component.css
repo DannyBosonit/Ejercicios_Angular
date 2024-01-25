@@ -1,0 +1,12 @@
+.university {
+  height: 100vh;
+}
+
+.active {
+  background-color: green;
+  border-color: green;
+}
+
+.form-control {
+  width: 300px;
+}
