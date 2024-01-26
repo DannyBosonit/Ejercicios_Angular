@@ -12,7 +12,9 @@ export class Exercise4PageComponent {
   public activeButton: number | null = null;
   public searchQuery: string = '';
   public universities: University[] = [];
-  public searchUniversityinput = new FormControl('');
+  public searchSpainUniversityinput = new FormControl('');
+  public searchUKUniversityinput = new FormControl('');
+  public searchPortugalUniversityinput = new FormControl('');
 
   constructor(private universitiesService: universitiesService) {}
 
@@ -26,21 +28,21 @@ export class Exercise4PageComponent {
   }
 
   searchSpainUniversity() {
-    const value: string = this.searchUniversityinput.value || '';
+    const value: string = this.searchSpainUniversityinput.value || '';
     this.universitiesService
       .getSuggestionsSpain(value)
       .subscribe((universities) => (this.universities = universities));
   }
 
   searchUKUniversity() {
-    const value: string = this.searchUniversityinput.value || '';
+    const value: string = this.searchUKUniversityinput.value || '';
     this.universitiesService
       .getSuggestionsUK(value)
       .subscribe((universities) => (this.universities = universities));
   }
 
   searchPortugalUniversity() {
-    const value: string = this.searchUniversityinput.value || '';
+    const value: string = this.searchPortugalUniversityinput.value || '';
     this.universitiesService
       .getSuggestionsPortugal(value)
       .subscribe((universities) => (this.universities = universities));

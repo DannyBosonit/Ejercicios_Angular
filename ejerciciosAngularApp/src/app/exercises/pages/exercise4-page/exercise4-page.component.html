@@ -30,13 +30,13 @@
         placeholder="Buscar una universidad española"
         class="form-control"
         (input)="[searchInputChange($event), searchSpainUniversity()]"
-        [formControl]="searchUniversityinput"
+        [formControl]="searchSpainUniversityinput"
         [matAutocomplete]="spain"
       />
       <mat-autocomplete class="position-absolute" #spain="matAutocomplete">
         <mat-option
           *ngFor="let university of universities"
-          [value]="university"
+          [value]="university.name"
         >
           {{ university.name }}
         </mat-option>
@@ -47,13 +47,13 @@
         placeholder="Buscar una universidad britanica"
         class="form-control"
         (input)="[searchInputChange($event), searchUKUniversity()]"
-        [formControl]="searchUniversityinput"
+        [formControl]="searchUKUniversityinput"
         [matAutocomplete]="uk"
       />
       <mat-autocomplete class="position-absolute" #uk="matAutocomplete">
         <mat-option
           *ngFor="let university of universities"
-          [value]="university"
+          [value]="university.name"
         >
           {{ university.name }}
         </mat-option>
@@ -64,12 +64,13 @@
         placeholder="Buscar una universidad portuguesa"
         class="form-control"
         (input)="[searchInputChange($event), searchPortugalUniversity()]"
-        [matAutocomplete]="auto"
+        [formControl]="searchPortugalUniversityinput"
+        [matAutocomplete]="portugal"
       />
-      <mat-autocomplete class="position-absolute" #auto="matAutocomplete">
+      <mat-autocomplete class="position-absolute" #portugal="matAutocomplete">
         <mat-option
           *ngFor="let university of universities"
-          [value]="university"
+          [value]="university.name"
         >
           {{ university.name }}
         </mat-option>
