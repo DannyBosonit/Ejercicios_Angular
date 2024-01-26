@@ -1,9 +1,13 @@
-<div class="traffic-light">
-  <div class="light-color {{ colorActive === 'red' ? 'red' : '' }}"></div>
-  <div class="light-color {{ colorActive === 'yellow' ? 'yellow' : '' }}"></div>
-  <div class="light-color {{ colorActive === 'green' ? 'green' : '' }}"></div>
-</div>
+<div class="d-flex justify-content-evenly">
+  <div class="traffic-light">
+    <div class="light-color {{ colorActive === 'red' ? 'red' : '' }}"></div>
+    <div
+      class="light-color {{ colorActive === 'yellow' ? 'yellow' : '' }}"
+    ></div>
+    <div class="light-color {{ colorActive === 'green' ? 'green' : '' }}"></div>
+  </div>
 
-<app-exercise5-color-controller
-  (turnOnLight)="switchLight($event)"
-></app-exercise5-color-controller>
+  <app-exercise5-color-controller
+    (turnOnLight)="switchLight($event)"
+  ></app-exercise5-color-controller>
+</div>
