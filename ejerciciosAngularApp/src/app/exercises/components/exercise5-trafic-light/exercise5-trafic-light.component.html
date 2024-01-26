@@ -1,1 +1,9 @@
-<p>exercise5-trafic-light works!</p>
+<div class="traffic-light">
+  <div class="light-color {{ colorActive === 'red' ? 'red' : '' }}"></div>
+  <div class="light-color {{ colorActive === 'yellow' ? 'yellow' : '' }}"></div>
+  <div class="light-color {{ colorActive === 'green' ? 'green' : '' }}"></div>
+</div>
+
+<app-exercise5-color-controller
+  (turnOnLight)="switchLight($event)"
+></app-exercise5-color-controller>

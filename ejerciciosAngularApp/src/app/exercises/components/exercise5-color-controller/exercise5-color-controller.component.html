@@ -1,1 +1,18 @@
-<p>exercise5-color-controller works!</p>
+<h2 class="mt-2">Controlador</h2>
+
+<mat-form-field appearance="outline">
+  <mat-label>{{ colorActive }}</mat-label>
+  <mat-select [disabled]="false">
+    <mat-option value="{{ colorActive }}">{{ colorActive }}</mat-option>
+  </mat-select>
+</mat-form-field>
+<section class="example-section">
+  <mat-checkbox
+    class="example-margin"
+    checked="false"
+    name="turnOnOf"
+    (change)="switchLight()"
+  >
+    {{ switchBoolean ? "Encendido" : "Apagado" }}
+  </mat-checkbox>
+</section>
