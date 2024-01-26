@@ -17,6 +17,8 @@ import { Exercise3TableComponent } from './components/exercise3-table/exercise3-
 
 import { BlankSpacePipe } from './pipes/blank-space.pipe';
 import { MaterialModule } from '../material/material/material.module';
+import { Exercise5TraficLightComponent } from './components/exercise5-trafic-light/exercise5-trafic-light.component';
+import { Exercise5ColorControllerComponent } from './components/exercise5-color-controller/exercise5-color-controller.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { MaterialModule } from '../material/material/material.module';
 
     // Pipes
     BlankSpacePipe,
+      Exercise5TraficLightComponent,
+      Exercise5ColorControllerComponent,
   ],
   imports: [
     CommonModule,
