@@ -10,6 +10,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class Exercise3FormComponent implements OnInit {
   public countries: Country[] = [];
+  public users: User[] = [];
   public userForm = new FormGroup({
     id: new FormControl(0),
     name: new FormControl(''),
@@ -36,6 +37,8 @@ export class Exercise3FormComponent implements OnInit {
     if (!this.currentUser.id) {
       this.usersService.addUser(this.currentUser).subscribe((user) => {
         console.log(user);
+        this.usersService.getUsers().subscribe((users) => (this.users = users));
+        this.userForm.reset();
       });
       return;
     }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { User } from '../../interfaces/exercise3.interface';
 import { UsersService } from '../../services/users.service';
 
@@ -8,6 +8,7 @@ import { UsersService } from '../../services/users.service';
   styleUrls: ['./exercise3-table.component.css'],
 })
 export class Exercise3TableComponent implements OnInit {
+  @Input()
   public users: User[] = [];
 
   constructor(private usersService: UsersService) {}

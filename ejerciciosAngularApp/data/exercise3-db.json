@@ -18,11 +18,11 @@
     },
     {
       "id": 3,
-      "name": "Trunks",
-      "email": "trunks@test.com",
+      "name": "Luffy",
+      "email": "luffy@test.com",
       "subscription": false,
-      "country": "Japan",
-      "city": "Tokio"
+      "country": "Brazil",
+      "city": "Rio de Janeiro"
     },
     {
       "id": 4,
