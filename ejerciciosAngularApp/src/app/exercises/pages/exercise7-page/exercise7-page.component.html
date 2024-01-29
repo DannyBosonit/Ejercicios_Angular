@@ -1,18 +1,28 @@
 <div class="col-3">
-  <p class="fs-1">0</p>
+  <p class="fs-1">{{ counter }}</p>
   <div class="d-flex row mt-3">
     <span>Setup</span>
     <div>
-      <button class="btn btn-primary me-2">start</button>
-      <button class="btn btn-primary me-2">pause</button>
-      <button class="btn btn-primary me-2">reset</button>
+      <button (click)="startCounter()" class="btn btn-primary me-2">
+        start
+      </button>
+      <button (click)="stopCounter()" class="btn btn-primary me-2">
+        pause
+      </button>
+      <button (click)="resetCounter()" class="btn btn-primary me-2">
+        reset
+      </button>
     </div>
   </div>
   <div class="d-flex row mt-3">
     <span>Count</span>
     <div>
-      <button class="btn btn-primary me-2">Count up</button>
-      <button class="btn btn-primary me-2">Count down</button>
+      <button (click)="startCounter()" class="btn btn-primary me-2">
+        Count up
+      </button>
+      <button (click)="countdown()" class="btn btn-primary me-2">
+        Count down
+      </button>
     </div>
   </div>
   <div class="row mt-3">

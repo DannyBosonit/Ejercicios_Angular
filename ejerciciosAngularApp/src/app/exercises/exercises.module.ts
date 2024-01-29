@@ -36,8 +36,8 @@ import { Exercise5ColorControllerComponent } from './components/exercise5-color-
 
     // Pipes
     BlankSpacePipe,
-      Exercise5TraficLightComponent,
-      Exercise5ColorControllerComponent,
+    Exercise5TraficLightComponent,
+    Exercise5ColorControllerComponent,
   ],
   imports: [
     CommonModule,
