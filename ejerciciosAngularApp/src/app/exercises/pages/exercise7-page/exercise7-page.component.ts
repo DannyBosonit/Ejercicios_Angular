@@ -10,6 +10,7 @@ export class Exercise7PageComponent {
   public counter: number = 0;
   public timeInterval = interval(1000);
   public numberInterval: number = 1;
+  public manualNumber: number = 1;
   public stop = new Subject();
 
   startCounter() {
@@ -34,6 +35,14 @@ export class Exercise7PageComponent {
     this.counter = this.counter || 1;
     this.timeInterval.pipe(takeUntil(this.stop)).subscribe(() => {
       this.counter -= this.numberInterval;
+    });
+  }
+
+  setManualcounter() {
+    this.stop.next(0);
+    this.counter = this.counter || 1;
+    this.timeInterval.pipe(takeUntil(this.stop)).subscribe(() => {
+      this.counter += this.manualNumber;
     });
   }
 }

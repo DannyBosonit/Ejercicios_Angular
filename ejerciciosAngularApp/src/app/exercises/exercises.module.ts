@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExercisesRoutingModule } from './exercises-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 import { Exercise1PageComponent } from './pages/exercise1-page/exercise1-page.component';
@@ -44,6 +44,7 @@ import { Exercise5ColorControllerComponent } from './components/exercise5-color-
     ExercisesRoutingModule,
     ReactiveFormsModule,
     MaterialModule,
+    FormsModule,
   ],
 })
 export class ExercisesModule {}
