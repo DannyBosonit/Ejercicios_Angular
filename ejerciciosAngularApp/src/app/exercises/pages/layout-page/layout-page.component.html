@@ -1,22 +1,14 @@
 <h1 class="my-3">Ejercicios Angular</h1>
-<!-- <select class="form-select mb-3" name="Ejercicios">
-  <option routerLink="exercise_1">Ejercicio 1</option>
-  <option routerLink="exercise_2">Ejercicio 2</option>
-  <option routerLink="exercise_3">Ejercicio 3</option>
-  <option routerLink="exercise_4">Ejercicio 4</option>
-  <option routerLink="exercise_5">Ejercicio 5</option>
-  <option routerLink="exercise_6">Ejercicio 6</option>
-  <option routerLink="exercise_7">Ejercicio 7</option>
-</select> -->
 
 <ul class="list-group mb-3">
-  <li class="list-group-item" routerLink="exercise_1">Ejercicio 1</li>
-  <li class="list-group-item" routerLink="exercise_2">Ejercicio 2</li>
-  <li class="list-group-item" routerLink="exercise_3">Ejercicio 3</li>
-  <li class="list-group-item" routerLink="exercise_4">Ejercicio 4</li>
-  <li class="list-group-item" routerLink="exercise_5">Ejercicio 5</li>
-  <li class="list-group-item" routerLink="exercise_6">Ejercicio 6</li>
-  <li class="list-group-item" routerLink="exercise_7">Ejercicio 7</li>
+  <li
+    *ngFor="let exercise of exercises"
+    class="list-group-item"
+    routerLink="{{ exercise }}"
+    routerLinkActive="active"
+  >
+    {{ exercise | listItemTitle }}
+  </li>
 </ul>
 
 <router-outlet></router-outlet>
