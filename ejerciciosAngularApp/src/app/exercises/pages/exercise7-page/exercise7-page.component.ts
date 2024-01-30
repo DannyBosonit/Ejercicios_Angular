@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { interval, Observable, Subject, takeUntil } from 'rxjs';
+import { Component } from '@angular/core';
+import { interval, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-exercise7-page',
