@@ -14,20 +14,18 @@ export class Exercise2ChildComponent implements OnInit {
   @Output()
   public onChildMessage: EventEmitter<string> = new EventEmitter();
 
-  public parentServiceMessage: string = '';
-  public parentSubjectMessage: string = '';
   private subscription?: Subscription;
 
   constructor(private messagesService: MessagesService) {}
 
   ngOnInit(): void {
     this.messagesService.sendParentMessage.subscribe((str: string) => {
-      this.parentServiceMessage = str;
+      this.parentMessage = str;
     });
     this.subscription = this.messagesService
       .getParentObservable()
       .subscribe((str: string) => {
-        this.parentSubjectMessage = str;
+        this.parentMessage = str;
       });
   }
 

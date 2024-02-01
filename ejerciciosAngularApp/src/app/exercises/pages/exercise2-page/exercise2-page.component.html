@@ -1,8 +1,6 @@
 <div class="border border-2 border-info p-3 mb-3">
   <h4 class="col-12">PARENT</h4>
-  <p class="text-center">
-    message: {{ childMessage || childServiceMessage || childSubjectMessage }}
-  </p>
+  <p class="text-center">message: {{ childMessage }}</p>
   <div class="d-flex justify-content-center">
     <button (click)="sendMessageService()" class="btn btn-primary me-2">
       Use Service

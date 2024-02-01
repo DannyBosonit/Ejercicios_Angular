@@ -10,20 +10,18 @@ import { Subscription } from 'rxjs';
 export class Exercise2PageComponent implements OnInit {
   public parentMessage: string = '';
   public childMessage: string = '';
-  public childServiceMessage: string = '';
-  public childSubjectMessage: string = '';
   private subscription?: Subscription;
 
   constructor(private messagesService: MessagesService) {}
 
   ngOnInit(): void {
     this.messagesService.sendChildMessage.subscribe((str: string) => {
-      this.childServiceMessage = str;
+      this.childMessage = str;
     });
     this.subscription = this.messagesService
       .getChildObservable()
       .subscribe((str: string) => {
-        this.childSubjectMessage = str;
+        this.childMessage = str;
       });
   }
 
