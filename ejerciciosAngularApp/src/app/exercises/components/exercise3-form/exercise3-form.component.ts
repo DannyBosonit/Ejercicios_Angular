@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Country, User } from '../../interfaces/exercise3.interface';
 import { UsersService } from '../../services/users.service';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -42,5 +43,9 @@ export class Exercise3FormComponent implements OnInit {
       });
       return;
     }
+    this.usersService.updateUser(this.currentUser).subscribe((user) => {
+      console.log(`${user.name} ha sido actualizado!`);
+      this.userForm.reset();
+    });
   }
 }

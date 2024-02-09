@@ -19,6 +19,12 @@ export class UsersService {
     return this.http.get<User[]>(`${this.dataBaseUrl}/users`);
   }
 
+  getUserById(id: number): Observable<User | undefined> {
+    return this.http
+      .get<User>(`${this.dataBaseUrl}/users/${id}`)
+      .pipe(catchError((error) => of(undefined)));
+  }
+
   addUser(user: User): Observable<User> {
     return this.http.post<User>(`${this.dataBaseUrl}/users`, user);
   }
@@ -30,7 +36,7 @@ export class UsersService {
 
   deleteUser(id: number): Observable<boolean> {
     return this.http.delete(`${this.dataBaseUrl}/users/${id}`).pipe(
-      catchError((err) => of(false)),
+      catchError((err) => err),
       map((resp) => true)
     );
   }
