@@ -5,9 +5,11 @@ import { Component, Input } from '@angular/core';
   templateUrl: './layout-page.component.html',
   styles: [
     'input { background-color: #8c8c8c; \
-      padding: 0.5rem; border: none; \
+      padding: 0.5rem; \
+      border: none; \
       border-radius: 5px; \
-      color: white;}',
+      color: white; \
+      height: 20px}',
     'input::placeholder {color: #d1cece}',
   ],
 })
