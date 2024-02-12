@@ -15,7 +15,7 @@ const routes: Routes = [
         component: ListPageComponent,
       },
       {
-        path: 'search',
+        path: 'search/:text',
         component: SearchPageComponent,
       },
       {
