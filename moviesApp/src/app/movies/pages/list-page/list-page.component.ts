@@ -7,5 +7,9 @@ import { MoviesService } from '../../services/movies.service';
   styles: ``,
 })
 export class ListPageComponent {
-  constructor(private moviesService: MoviesService) {}
+  constructor(private moviesService: MoviesService) {
+    this.moviesService.getMovies().subscribe((resp) => {
+      console.log(resp);
+    });
+  }
 }
