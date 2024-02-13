@@ -8,7 +8,7 @@ import { MoviesService } from '../../services/movies.service';
 })
 export class ListPageComponent {
   constructor(private moviesService: MoviesService) {
-    this.moviesService.getMovies().subscribe((resp) => {
+    this.moviesService.getMoviesList().subscribe((resp) => {
       console.log(resp);
     });
   }
