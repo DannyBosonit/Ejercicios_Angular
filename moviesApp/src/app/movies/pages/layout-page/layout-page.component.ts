@@ -11,6 +11,8 @@ import { Component, Input } from '@angular/core';
       color: white; \
       height: 20px}',
     'input::placeholder {color: #d1cece}',
+    'input:focus {background-color: #8c8c8c; \
+      color: white;}',
   ],
 })
 export class LayoutPageComponent {}
