@@ -1,0 +1,12 @@
+.swiper {
+  width: 96vw;
+  height: 450px;
+}
+
+.swiper-button-prev, .swiper-button-next {
+  color: white;
+}
+
+.swiper-button-prev:hover, .swiper-button-next:hover {
+  color: #8c8c8c;
+}
