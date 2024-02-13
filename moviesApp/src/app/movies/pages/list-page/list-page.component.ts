@@ -1,15 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
+import { Movie } from '../../interfaces/movieList.interface';
 
 @Component({
   selector: 'app-list-page',
   templateUrl: './list-page.component.html',
   styles: ``,
 })
-export class ListPageComponent {
-  constructor(private moviesService: MoviesService) {
-    this.moviesService.getMoviesList().subscribe((resp) => {
-      console.log(resp);
+export class ListPageComponent implements OnInit {
+  public movie: Movie[] = [];
+  public movieSlides: Movie[] = [];
+
+  constructor(private moviesService: MoviesService) {}
+
+  ngOnInit(): void {
+    this.moviesService.getMoviesList().subscribe((movies) => {
+      movies = this.movie;
+      movies = this.movieSlides;
     });
   }
 }
