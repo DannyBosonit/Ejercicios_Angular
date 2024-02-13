@@ -12,17 +12,21 @@
           'url(https://image.tmdb.org/t/p/w500' + movie.backdrop_path + ')',
       }"
     >
-      Slide 1
+      <div class="movie-description absolute bottom-0 left-0">
+        <h2>
+          {{ movie.title }}
+        </h2>
+        <p>{{ movie.overview | slice : 0 : 150 }}...</p>
+        <button mat-flat-button color="accent" (click)="onMoviePage(movie)">
+          Detalles
+        </button>
+      </div>
     </div>
-    ...
   </div>
   <!-- If we need pagination -->
   <div class="swiper-pagination"></div>
 
   <!-- If we need navigation buttons -->
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-
-  <!-- If we need scrollbar -->
-  <div class="swiper-scrollbar"></div>
+  <div class="swiper-button-prev" (click)="onSliderPrev()"></div>
+  <div class="swiper-button-next" (click)="onSliderNext()"></div>
 </div>
