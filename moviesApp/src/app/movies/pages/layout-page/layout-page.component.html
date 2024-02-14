@@ -1,14 +1,14 @@
-<mat-toolbar class="flex flex-row-reverse align-items-center">
+<mat-toolbar class="flex flex-row align-items-center">
+  <h2 class="title mr-3" (click)="onMoviesListPage()">MyMoviesApp.com</h2>
+  <input
+    class="form-control w-3 h-2rem"
+    type="text"
+    placeholder="Encuentra tú película favorita"
+  />
   <button class="ml-2 mr-2" mat-stroked-button>
     <mat-icon>search</mat-icon>
     Buscar
   </button>
-  <input
-    class="form-control w-2 h-2rem"
-    type="text"
-    placeholder="Encuentra tú película favorita"
-  />
-  <h2 class="title mr-3" (click)="onMoviesListPage()">MyMoviesApp.com</h2>
   <span class="spacer"></span>
   <button class="ml-2 mr-2" mat-stroked-button color="accent">
     <span class="spacer"></span>
