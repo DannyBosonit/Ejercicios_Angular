@@ -8,6 +8,7 @@ import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 import { ListPageComponent } from './pages/list-page/list-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { SliderComponent } from './components/slider/slider.component';
+import { PosterGridComponent } from './components/poster-grid/poster-grid.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SliderComponent } from './components/slider/slider.component';
     ListPageComponent,
     SearchPageComponent,
     SliderComponent,
+    PosterGridComponent,
   ],
   imports: [CommonModule, MoviesRoutingModule, MaterialModule],
 })

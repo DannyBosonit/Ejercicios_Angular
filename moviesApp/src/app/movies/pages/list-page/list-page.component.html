@@ -5,3 +5,10 @@
     <movies-slider [movies]="movieSlides"></movies-slider>
   </div>
 </div>
+
+<h1 class="mt-5">Estrenos</h1>
+
+<movie-poster-grid
+  *ngIf="movie.length > 0"
+  [movies]="movie"
+></movie-poster-grid>
