@@ -1,1 +1,27 @@
-<p>poster-grid works!</p>
+<div class="flex flex-wrap mb-8">
+  <div *ngFor="let movie of movies" class="col-3">
+    <mat-card class="card">
+      <img
+        mat-card-image
+        [src]="movie.poster_path | poster"
+        [alt]="movie.title"
+        (click)="onMoviePage(movie)"
+      />
+      <mat-card-header>
+        <mat-card-title>{{ movie.title }}</mat-card-title>
+        <mat-card-subtitle>{{ movie.original_title }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="flex flex-row">
+          <ngb-rating
+            class="col-10"
+            style="color: #8c8c8c"
+            [rate]="movie.vote_average"
+          ></ngb-rating>
+          <p class="col-2">{{ movie.vote_average | number : "1.1-1" }}</p>
+        </div>
+        <p><strong>fecha de lanzamiento: </strong>{{ movie.release_date }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
