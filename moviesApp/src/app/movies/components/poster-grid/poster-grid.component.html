@@ -8,19 +8,25 @@
         (click)="onMoviePage(movie)"
       />
       <mat-card-header>
-        <mat-card-title>{{ movie.title }}</mat-card-title>
-        <mat-card-subtitle>{{ movie.original_title }}</mat-card-subtitle>
+        <mat-card-title class="card-text">{{ movie.title }}</mat-card-title>
+        <mat-card-subtitle class="card-text"
+          >Título original: {{ movie.original_title }}</mat-card-subtitle
+        >
       </mat-card-header>
       <mat-card-content>
         <div class="flex flex-row">
           <ngb-rating
             class="col-10"
-            style="color: #8c8c8c"
+            style="color: goldenrod"
             [rate]="movie.vote_average"
           ></ngb-rating>
-          <p class="col-2">{{ movie.vote_average | number : "1.1-1" }}</p>
+          <p class="col-2 card-text">
+            {{ movie.vote_average | number : "1.1-1" }}
+          </p>
         </div>
-        <p><strong>fecha de lanzamiento: </strong>{{ movie.release_date }}</p>
+        <p class="card-text">
+          <strong>fecha de lanzamiento: </strong>{{ movie.release_date }}
+        </p>
       </mat-card-content>
     </mat-card>
   </div>
