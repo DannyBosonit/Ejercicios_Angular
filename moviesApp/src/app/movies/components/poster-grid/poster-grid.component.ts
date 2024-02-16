@@ -8,17 +8,13 @@ import { Router } from '@angular/router';
   templateUrl: './poster-grid.component.html',
   styleUrl: './poster-grid.component.css',
 })
-export class PosterGridComponent implements OnInit {
+export class PosterGridComponent {
   @Input()
   movies?: Movie[];
 
   constructor(starRating: NgbRatingConfig, private router: Router) {
     starRating.max = 10;
     starRating.readonly = true;
-  }
-
-  ngOnInit(): void {
-    console.log(this.movies);
   }
 
   onMoviePage(movie: Movie) {

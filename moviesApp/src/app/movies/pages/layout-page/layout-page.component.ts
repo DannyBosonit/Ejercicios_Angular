@@ -12,4 +12,12 @@ export class LayoutPageComponent {
   onMoviesListPage() {
     this.router.navigate(['/movies/list']);
   }
+
+  searchMovie(txt: string) {
+    txt = txt.trim();
+
+    if (!txt) return;
+
+    this.router.navigate(['movies/search', txt]);
+  }
 }

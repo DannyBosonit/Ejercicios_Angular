@@ -1,1 +1,10 @@
-<p>search-page works!</p>
+<h1>
+  Buscar películas: <small>{{ txt }}</small>
+</h1>
+
+<hr />
+
+<movie-poster-grid
+  *ngIf="movies.length > 0"
+  [movies]="movies"
+></movie-poster-grid>

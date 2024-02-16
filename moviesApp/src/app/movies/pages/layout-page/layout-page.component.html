@@ -2,10 +2,16 @@
   <h2 class="title mr-3" (click)="onMoviesListPage()">MyMoviesApp.com</h2>
   <input
     class="form-control w-3 h-2rem"
+    #searchByTxt
+    (keyup.enter)="searchMovie(searchByTxt.value)"
     type="text"
     placeholder="Encuentra tú película favorita"
   />
-  <button class="ml-2 mr-2" mat-stroked-button>
+  <button
+    class="ml-2 mr-2"
+    mat-stroked-button
+    (click)="searchMovie(searchByTxt.value)"
+  >
     <mat-icon>search</mat-icon>
     Buscar
   </button>
