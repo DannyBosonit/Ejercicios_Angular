@@ -37,6 +37,19 @@ export class MoviesService {
       );
   }
 
+  searchMovies(txt: string): Observable<Movie[]> {
+    const params = new HttpParams()
+      .set('api_key', this.apiKey)
+      .set('language', this.language)
+      .set('query', txt)
+      .set('page', this.moviesPage.toString())
+      .set('include_adult', false);
+
+    return this.http
+      .get<MovieList>(`${this.baseUrl}/search/movie`, { params })
+      .pipe(map((resp) => resp.results));
+  }
+
   resetMovieListPage() {
     this.moviesPage = 1;
   }
