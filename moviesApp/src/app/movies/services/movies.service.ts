@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable, map, of, tap } from 'rxjs';
-import { Movie, MovieList } from '../interfaces/movieList.interface';
+import { Observable, catchError, map, of, tap } from 'rxjs';
 import { environments } from '../../../environments/environments';
+import { Movie, MovieList } from '../interfaces/movieList.interface';
+import { MovieDatails } from '../interfaces/movie.interface';
 
 @Injectable({ providedIn: 'root' })
 export class MoviesService {
@@ -48,6 +49,18 @@ export class MoviesService {
     return this.http
       .get<MovieList>(`${this.baseUrl}/search/movie`, { params })
       .pipe(map((resp) => resp.results));
+  }
+
+  getMoviesDetails(id: number) {
+    const params = new HttpParams()
+      .set('api_key', this.apiKey)
+      .set('language', this.language);
+
+    return this.http
+      .get<MovieDatails>(`${this.baseUrl}/movie/${id}`, {
+        params,
+      })
+      .pipe(catchError((err) => of(null)));
   }
 
   resetMovieListPage() {
