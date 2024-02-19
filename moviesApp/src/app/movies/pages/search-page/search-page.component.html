@@ -4,7 +4,8 @@
 
 <hr />
 
-<movie-poster-grid
-  *ngIf="movies.length > 0"
-  [movies]="movies"
-></movie-poster-grid>
+<div *ngIf="noResults" class="text-center mt-5">
+  <h2>No hay resultados en la búsqueda</h2>
+</div>
+
+<movie-poster-grid *ngIf="!noResults" [movies]="movies"></movie-poster-grid>
