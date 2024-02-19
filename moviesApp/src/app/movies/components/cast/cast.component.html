@@ -1,0 +1,17 @@
+<div
+  *ngFor="let actor of cast | slice : 0 : 9"
+  class="flex flex-column align-items-center justify-content-center"
+>
+  <div class="cast-portrait mr-2 mt-3">
+    <img
+      [src]="actor.profile_path | poster"
+      [alt]="actor.name"
+      class="cast-img"
+    />
+  </div>
+  <br />
+  <p class="text">
+    <strong>{{ actor.name }}</strong>
+    ({{ actor.character }})
+  </p>
+</div>

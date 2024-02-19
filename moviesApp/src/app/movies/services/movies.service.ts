@@ -4,6 +4,7 @@ import { Observable, catchError, map, of, tap } from 'rxjs';
 import { environments } from '../../../environments/environments';
 import { Movie, MovieList } from '../interfaces/movieList.interface';
 import { MovieDatails } from '../interfaces/movie.interface';
+import { Cast, MovieCredits } from '../interfaces/movieCredits.interface';
 
 @Injectable({ providedIn: 'root' })
 export class MoviesService {
@@ -61,6 +62,21 @@ export class MoviesService {
         params,
       })
       .pipe(catchError((err) => of(null)));
+  }
+
+  getCast(id: number): Observable<Cast[]> {
+    const params = new HttpParams()
+      .set('api_key', this.apiKey)
+      .set('language', this.language);
+
+    return this.http
+      .get<MovieCredits>(`${this.baseUrl}/movie/${id}/credits`, {
+        params,
+      })
+      .pipe(
+        map((resp) => resp.cast),
+        catchError((err) => of([]))
+      );
   }
 
   resetMovieListPage() {

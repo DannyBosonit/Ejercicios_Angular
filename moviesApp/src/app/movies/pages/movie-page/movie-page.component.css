@@ -1,4 +1,9 @@
+mat-card {
+  height: 738px;
+}
+
 .poster {
+  height: 720px;
   border-radius: 12px;
   box-shadow: 2px 2px 15px 9px rgba(0, 0, 0, 0.3);
 }

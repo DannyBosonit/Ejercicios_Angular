@@ -10,6 +10,7 @@ import { ListPageComponent } from './pages/list-page/list-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { PosterGridComponent } from './components/poster-grid/poster-grid.component';
+import { CastComponent } from './components/cast/cast.component';
 
 import { PosterPipe } from './pipes/poster.pipe';
 
@@ -21,6 +22,7 @@ import { PosterPipe } from './pipes/poster.pipe';
     SearchPageComponent,
     SliderComponent,
     PosterGridComponent,
+    CastComponent,
     //Pipes
 
     PosterPipe,
