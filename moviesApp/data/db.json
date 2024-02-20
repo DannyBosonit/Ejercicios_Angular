@@ -9,12 +9,13 @@
       "user_vip": true
     },
     {
+      "id": 2,
       "real_name": "Andrés Triana",
-      "user_name": "Patinos93",
+      "user_name": "patinos93",
       "email": "patinos93@test.com",
       "password": "123369",
-      "user_vip": false,
-      "id": 2
+      "password2": "123369",
+      "user_vip": false
     }
   ]
 }
