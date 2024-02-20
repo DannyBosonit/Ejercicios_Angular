@@ -1,12 +1,20 @@
 {
   "users": [
     {
-    "id": 1,
-    "real_name": "Daniel Ortiz",
-    "user_name": "Dannyelgeek",
-    "email": "dannyelgeek@test.com",
-    "password": "123456",
-    "user_vip": true
-  }
-]
+      "id": 1,
+      "real_name": "Daniel Ortiz",
+      "user_name": "Dannyelgeek",
+      "email": "dannyelgeek@test.com",
+      "password": "123456",
+      "user_vip": true
+    },
+    {
+      "real_name": "Andrés Triana",
+      "user_name": "Patinos93",
+      "email": "patinos93@test.com",
+      "password": "123369",
+      "user_vip": false,
+      "id": 2
+    }
+  ]
 }
