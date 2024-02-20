@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from '../../services/users.service';
 import { User } from '../../interfaces/user.interface';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-page',
@@ -19,7 +21,12 @@ export class RegisterPageComponent {
     user_vip: [false, Validators.required],
   });
 
-  constructor(private fb: FormBuilder, private usersService: UsersService) {}
+  constructor(
+    private fb: FormBuilder,
+    private usersService: UsersService,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {}
 
   get currentUser(): User {
     const user = this.userForm.value as User;
@@ -31,7 +38,12 @@ export class RegisterPageComponent {
     if (this.userForm.invalid) return;
 
     this.usersService.addUser(this.currentUser).subscribe((user) => {
-      // TODO: snackbar
+      this.router.navigate(['auth/login']);
+      this.snackBar.open(
+        `Se ha creado el usuario ${user.user_name}!`,
+        'cerrar',
+        { duration: 3000 }
+      );
     });
     this.userForm.reset();
     return;
