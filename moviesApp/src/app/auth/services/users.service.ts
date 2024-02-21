@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from '../interfaces/user.interface';
-import { Observable, tap } from 'rxjs';
+import { Observable, catchError, map, of, tap } from 'rxjs';
 import { environments } from '../../../environments/environments';
 
 @Injectable({ providedIn: 'root' })
@@ -41,5 +41,38 @@ export class UsersService {
           }
         })
       );
+  }
+
+  checkAuthentication(): Observable<boolean> {
+    if (!localStorage.getItem('token')) return of(false);
+
+    const token = localStorage.getItem('token');
+
+    return this.http
+      .get<User>(`${this.usersDataBase}/users/${this.user?.id}`)
+      .pipe(
+        tap((user) => (this.user = user)),
+        map((user) => !!user),
+        catchError((err) => of(false))
+      );
+  }
+
+  checkVip(): Observable<boolean> {
+    if (!localStorage.getItem('user_vip')) return of(false);
+
+    const vip = localStorage.getItem('user_vip');
+
+    return this.http
+      .get<User>(`${this.usersDataBase}/users/${this.user?.id}`)
+      .pipe(
+        tap((user) => (this.user = user)),
+        map((user) => !!user),
+        catchError((err) => of(false))
+      );
+  }
+
+  logout() {
+    this.user = undefined;
+    localStorage.clear();
   }
 }
