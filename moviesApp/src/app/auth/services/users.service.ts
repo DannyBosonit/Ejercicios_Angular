@@ -21,15 +21,25 @@ export class UsersService {
     return structuredClone(this.user);
   }
 
-  login(username: string, password: string): Observable<User> {
+  login(username: string, password: string): Observable<User[]> {
     const params = new HttpParams()
       .set('user_name', username)
       .set('password', password);
 
-    return this.http.get<User>(`${this.usersDataBase}/users`, { params }).pipe(
-      tap((user) => (this.user = user)),
-      tap((user) => localStorage.setItem('token', user.id.toString())),
-      tap((user) => localStorage.setItem('user_vip', user.user_vip.toString()))
-    );
+    return this.http
+      .get<User[]>(`${this.usersDataBase}/users`, { params })
+      .pipe(
+        tap((users) => {
+          if (users && users.length > 0) {
+            const user = users[0];
+
+            if (user) {
+              this.user = user;
+              localStorage.setItem('token', JSON.stringify(user.id));
+              localStorage.setItem('user_vip', JSON.stringify(user.user_vip));
+            }
+          }
+        })
+      );
   }
 }
