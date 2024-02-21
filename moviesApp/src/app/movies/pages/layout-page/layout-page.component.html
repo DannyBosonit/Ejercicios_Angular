@@ -16,7 +16,13 @@
     Buscar
   </button>
   <span class="spacer"></span>
-  <button class="ml-2 mr-2" mat-stroked-button color="accent">
+  <span class="text-sm">{{ user?.user_name }}</span>
+  <button
+    class="ml-2 mr-2"
+    mat-stroked-button
+    color="accent"
+    (click)="onLogout()"
+  >
     <span class="spacer"></span>
     <mat-icon>logout</mat-icon>
     Logout
