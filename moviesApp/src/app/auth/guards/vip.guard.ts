@@ -21,7 +21,7 @@ export class VipGuard implements CanActivate {
       return true;
     } else {
       this.router.navigate(['/']);
-      this.snakbar.open('Debes ser V.i.P. para acceder!', 'cerrar', {
+      this.snakbar.open('Debes ser V.I.P. para acceder!', 'cerrar', {
         duration: 3000,
       });
       return false;
