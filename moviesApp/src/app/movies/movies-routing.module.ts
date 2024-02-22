@@ -4,6 +4,7 @@ import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 import { ListPageComponent } from './pages/list-page/list-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { MoviePageComponent } from './pages/movie-page/movie-page.component';
+import { VipGuard } from '../auth/guards/vip.guard';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
       {
         path: 'movie/:id',
         component: MoviePageComponent,
+        canActivate: [VipGuard],
       },
       {
         path: '**',

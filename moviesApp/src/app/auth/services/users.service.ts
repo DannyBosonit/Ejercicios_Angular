@@ -57,20 +57,6 @@ export class UsersService {
       );
   }
 
-  checkVip(): Observable<boolean> {
-    if (!localStorage.getItem('user_vip')) return of(false);
-
-    const vip = localStorage.getItem('user_vip');
-
-    return this.http
-      .get<User>(`${this.usersDataBase}/users/${this.user?.id}`)
-      .pipe(
-        tap((user) => (this.user = user)),
-        map((user) => !!user),
-        catchError((err) => of(false))
-      );
-  }
-
   logout() {
     this.user = undefined;
     localStorage.clear();
