@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
@@ -8,7 +9,7 @@ import {
 
 @Injectable({ providedIn: 'root' })
 export class VipGuard implements CanActivate {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private snakbar: MatSnackBar) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -20,6 +21,9 @@ export class VipGuard implements CanActivate {
       return true;
     } else {
       this.router.navigate(['/']);
+      this.snakbar.open('Debes ser V.i.P. para acceder!', 'cerrar', {
+        duration: 3000,
+      });
       return false;
     }
   }
